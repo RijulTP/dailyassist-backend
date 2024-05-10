@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-mw+w@m-qy%g3sp^rfwqbjd2xxx-&w00mts=ann$g$1axjgv(iv
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["0.0.0.0","localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0","localhost", "127.0.0.1","dailyassist-backend.vercel.app"]
 
 
 # Application definition
