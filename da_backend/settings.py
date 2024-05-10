@@ -61,6 +61,7 @@ CORS_ALLOWED_ORIGINS = [
 
 ROOT_URLCONF = 'da_backend.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
