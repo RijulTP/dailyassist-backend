@@ -55,10 +55,15 @@ MIDDLEWARE = [
 
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'https://lifenavigator.netlify.app'
-]
+CORS_ALLOWED_ORIGINS = ['*']
+
+ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = ["*"]
+
 
 ROOT_URLCONF = 'da_backend.urls'
 
