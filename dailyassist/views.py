@@ -54,7 +54,7 @@ def addUser(request):
             with connection.cursor() as cursor:
                  cursor.execute(query)
             return JsonResponse(
-                {"message": "User added successfully", "user_type": user_type}
+                {"message": "User added successfully", "user_type": user_type,"success":True}
             )
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)
