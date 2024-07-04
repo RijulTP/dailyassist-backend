@@ -14,6 +14,29 @@ from django.db import connection
 
     
 
+# def login(request):
+#     if request.method == "POST":
+#         result = json.loads(request.body)
+#         print(result)
+#         username = result["username"]
+#         password = result["password"]
+#         with connection.cursor() as cursor:
+#             cursor.execute(
+#                 "SELECT password FROM users WHERE username = %s", (username,)
+#             )
+#             user_data = cursor.fetchone()
+
+#         if user_data is not None:
+#             stored_password = user_data[0]
+#             if stored_password == password:
+#                 print("Login successful for user:", username)
+#                 return JsonResponse({"success": True, "message": "User logged in successfully"})
+#             else:
+#                 print("Incorrect password for user:", username)
+#                 return JsonResponse({"success": False,"message": "Login failed, incorrect password"})
+#         else:
+#             return JsonResponse({"success": False,"message": "Login failed, username not found"})
+
 def login(request):
     if request.method == "POST":
         result = json.loads(request.body)
@@ -22,15 +45,15 @@ def login(request):
         password = result["password"]
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT password FROM users WHERE username = %s", (username,)
+                "SELECT user_id, password FROM users WHERE username = %s", (username,)
             )
             user_data = cursor.fetchone()
 
         if user_data is not None:
-            stored_password = user_data[0]
+            user_id, stored_password = user_data  # unpack user data
             if stored_password == password:
                 print("Login successful for user:", username)
-                return JsonResponse({"success": True, "message": "User logged in successfully"})
+                return JsonResponse({"success": True, "message": "User logged in successfully", "user_id": user_id})
             else:
                 print("Incorrect password for user:", username)
                 return JsonResponse({"success": False,"message": "Login failed, incorrect password"})
